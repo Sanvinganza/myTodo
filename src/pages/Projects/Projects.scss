@@ -1,0 +1,12 @@
+@use "../../variables";
+
+.projects-container {
+  .container-inner {
+    display: flex;
+    max-width: 1280px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px 0;
+  }
+}

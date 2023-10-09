@@ -1,0 +1,26 @@
+@use "../../variables" as color;
+
+.project-container {
+  display: flex;
+  max-width: 240px;
+  border-radius: 10px;
+  margin: 5px;
+  background-color: transparent;
+  padding: 20px 40px;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px color.$white solid;
+  .title {
+    padding: 5px 0;
+    font-size: 1.3em;
+    color: color.$blue;
+  }
+  .about {
+    color: color.$grey-light;
+    font-weight: 100;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

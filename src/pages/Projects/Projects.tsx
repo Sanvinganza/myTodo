@@ -1,5 +1,5 @@
 import { IProject, Project } from "../../components/Project/Project"
-import "./style.scss"
+import "./Projects.scss"
 
 export interface IProjectsProps {
   projects: IProject[]
@@ -7,10 +7,12 @@ export interface IProjectsProps {
 
 export function Projects() {
   return (
-    <div className="container">
-      {["title 1", "title 2", "title 3", "title 4"].map(project => (
-        <Project />
-      ))}
+    <div className="projects-container">
+      <div className="container-inner">
+        {[1, 2, 3, 4, 5, 6, 7].map(project => (
+          <Project />
+        ))}
+      </div>
     </div>
   )
 }

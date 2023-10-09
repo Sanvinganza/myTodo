@@ -1,4 +1,4 @@
-import "./style.scss"
+import "./Project.scss"
 
 export interface IProject {
   id: number
