@@ -1,6 +1,15 @@
-import * as React from 'react'
-import classNames from 'classnames'
+import { Outlet } from "react-router-dom"
 
 export function Layout() {
-  return <div></div>
+  return (
+    <>
+      <header>
+        <nav>nav</nav>
+      </header>
+      <hr />
+      <Outlet />
+      <hr />
+      <footer>footer</footer>
+    </>
+  )
 }
