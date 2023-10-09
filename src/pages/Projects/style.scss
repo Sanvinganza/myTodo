@@ -1,6 +1,9 @@
 @use "../../variables";
 
 .container {
+  display: flex;
   max-width: 1280px;
-  background: variables.$grey;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
 }

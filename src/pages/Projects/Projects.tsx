@@ -1,14 +1,16 @@
-import { Project } from "../../components/Project/Project"
+import { IProject, Project } from "../../components/Project/Project"
 import "./style.scss"
 
-export interface IProjectsProps {}
+export interface IProjectsProps {
+  projects: IProject[]
+}
 
-export function Projects(props: IProjectsProps) {
+export function Projects() {
   return (
     <div className="container">
-      <div className="container-inner">
+      {["title 1", "title 2", "title 3", "title 4"].map(project => (
         <Project />
-      </div>
+      ))}
     </div>
   )
 }
