@@ -1,12 +1,11 @@
 export interface IQueueProps {}
 import "./Queue.scss"
-
+export interface ICardProps {
+  task: string
+}
 export function Queue(props: IQueueProps) {
   const queue1 = [
-    "Lorem ipsum dolor sit amet",
-    " consectetur, adipisicing elit. Offic",
-    ",iis vel qui similique in",
-    ", impedit nobis perferendis iure e",
+    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Offic",
     "t numquam. Soluta adipisci",
     " consequatur totam qua",
     "m enim similique laboriosam ab ducimus ",
@@ -17,12 +16,33 @@ export function Queue(props: IQueueProps) {
     "hic accusantium adipisci ipsam?",
   ]
 
+  const Card = ({ task }: ICardProps) => (
+    <>
+      <div className="queue-item">
+        <span className="about">{task}</span>
+        <footer>
+          <div className="attribute-container">
+            <div className="attribute">
+              <img src={require("../../../images/star.png")} />
+            </div>
+            <div className="attribute">
+              <img src={require("../../../images/message.png")} />
+            </div>
+            <div className="attribute">
+              <img src={require("../../../images/add.png")} />
+            </div>
+          </div>
+        </footer>
+      </div>
+    </>
+  )
+
   return (
     <div className="queue-container">
       {queue1.map(task => {
-        return <div className="queue-item">{task}</div>
+        return <Card task={task} />
       })}
-      <footer></footer>
+      <footer>add task</footer>
     </div>
   )
 }
