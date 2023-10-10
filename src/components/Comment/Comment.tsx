@@ -5,8 +5,6 @@ export interface IComment {
   date: string
 }
 
-import * as React from "react"
-
 export interface ICommentProps {}
 
 export function Comment(props: ICommentProps) {

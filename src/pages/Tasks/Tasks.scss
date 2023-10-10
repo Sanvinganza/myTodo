@@ -1,0 +1,25 @@
+@use "../../variables" as color;
+
+.tasks-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15px 0;
+  height: 100%;
+  .column {
+    min-height: 100%;
+    border-radius: 15px;
+    margin: 0 10px;
+    padding: 15px;
+
+    border: 2px color.$white solid;
+    width: calc(100vw / 3 - 50px);
+    max-width: 240px;
+    height: 100%;
+    .title {
+      color: color.$blue;
+      font-size: 1.4em;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@use "../../../variables" as color;
+
+.queue-container {
+  .queue-item {
+    padding: 10px 2px;
+    border-radius: 2px;
+    margin: 2px 0;
+    border: 1px color.$white solid;
+  }
+
+  footer {
+    height: 40px;
+    border-top: 3px color.$blue solid;
+    margin-top: 10px;
+  }
+}
