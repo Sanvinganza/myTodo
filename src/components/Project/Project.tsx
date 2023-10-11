@@ -1,3 +1,5 @@
+import { DndProvider } from "react-dnd"
+import { HTML5Backend } from "react-dnd-html5-backend"
 import "./Project.scss"
 
 export interface IProject {
@@ -8,12 +10,14 @@ export interface IProject {
 
 export function Project() {
   return (
-    <div className="project-container">
-      <div className="title">Project 1</div>
-      <div className="about">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad sint aut
-        autem sequi accusantium officiis.
+    <DndProvider backend={HTML5Backend}>
+      <div className="project-container">
+        <div className="title">Project 1</div>
+        <div className="about">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad sint aut
+          autem sequi accusantium officiis.
+        </div>
       </div>
-    </div>
+    </DndProvider>
   )
 }
