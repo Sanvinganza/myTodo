@@ -1,7 +1,7 @@
 import update from "immutability-helper"
 import { useCallback, useState } from "react"
 import "./Queue.scss"
-import { Card } from "../Task/Task"
+import { Card } from "./Objective/Objective"
 
 export interface ICardInfo {
   id: number

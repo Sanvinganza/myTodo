@@ -1,9 +1,9 @@
-import "./Tasks.scss"
+import "./ProjectObjectives.scss"
 import { DndProvider } from "react-dnd"
 import { HTML5Backend } from "react-dnd-html5-backend"
 import { Queue } from "./Queue/Queue"
 
-export function Tasks() {
+export function ProjectObjectives() {
   return (
     <div className="tasks-container">
       {["Queue", "Development", "Done"].map(title => {

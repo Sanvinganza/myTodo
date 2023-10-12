@@ -24,13 +24,13 @@ const CardCover = forwardRef<HTMLDivElement, ICardCoverProps>(
         <footer>
           <div className="attribute-container">
             <div className="attribute">
-              <img src={require("../../../images/star.png")} />
+              <img src={require("../../../../images/star.png")} />
             </div>
             <div className="attribute">
-              <img src={require("../../../images/message.png")} />
+              <img src={require("../../../../images/message.png")} />
             </div>
             <div className="attribute">
-              <img src={require("../../../images/add.png")} />
+              <img src={require("../../../../images/add.png")} />
             </div>
           </div>
         </footer>
@@ -39,15 +39,11 @@ const CardCover = forwardRef<HTMLDivElement, ICardCoverProps>(
   ),
 )
 
-export const ItemTypes = {
-  CARD: "card",
-}
-
-export const Card = ({ id, text, index, moveCard, date }: ICardProps) => {
+export const Card = ({ id, text, index, moveCard }: ICardProps) => {
   const ref = useRef(null)
 
   const [, drop] = useDrop({
-    accept: ItemTypes.CARD,
+    accept: "card",
     collect(monitor) {
       return {
         handlerId: monitor.getHandlerId(),
@@ -72,8 +68,8 @@ export const Card = ({ id, text, index, moveCard, date }: ICardProps) => {
     },
   })
 
-  const [{ isDragging }, drag] = useDrag({
-    type: ItemTypes.CARD,
+  const [, drag] = useDrag({
+    type: "card",
     item: () => {
       return { id, index }
     },
