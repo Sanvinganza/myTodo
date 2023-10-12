@@ -17,9 +17,9 @@ export function Layout() {
   return (
     <div className="container">
       <header>Tasks Manager</header>
-      <body>
+      <main>
         <Outlet />
-      </body>
+      </main>
       <Footer />
     </div>
   )

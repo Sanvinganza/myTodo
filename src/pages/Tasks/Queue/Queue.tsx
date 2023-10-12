@@ -13,33 +13,33 @@ export interface ICardInfo {
 const queue: ICardInfo[] = [
   {
     id: 1,
-    index: 21,
+    index: 1,
     date: new Date(),
-    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Offic",
+    text: "1Lorem dolor sit amet consectetur, adipisicing elit. Offic",
   },
   {
     id: 2,
-    index: 22,
+    index: 2,
     date: new Date(),
-    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Offic",
+    text: "2Lorem ipsum doloadipisicing elit. Offic",
   },
   {
     id: 3,
-    index: 23,
+    index: 3,
     date: new Date(),
-    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Offic",
+    text: "3Lorem ipsum dolor sit apisicing elit. Offic",
   },
   {
-    id: 14,
-    index: 24,
+    id: 4,
+    index: 4,
     date: new Date(),
-    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Offic",
+    text: "4amet consectetur, adipisicing elit. Offic",
   },
   {
-    id: 15,
-    index: 25,
+    id: 5,
+    index: 5,
     date: new Date(),
-    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Offic",
+    text: "5Lorpsum dolor sit amet consectetur, adipisicing elit. Offic",
   },
 ]
 
@@ -65,16 +65,14 @@ export function Queue() {
         id={card.id}
         text={card.text}
         moveCard={moveCard}
+        date={card.date}
       />
     )
   }, [])
 
   return (
     <div className="queue-container">
-      {cards.map(
-        (task, i) => renderCard(task, i),
-        // task.text,
-      )}
+      {cards.map((task, i) => renderCard(task, i))}
       <footer>add task</footer>
     </div>
   )
