@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 import { IProject, Project } from "./Project/Project"
-import "./ProjectsCollection.scss"
+import "./Collections.scss"
 
 export interface IProjectsProps {
   projects: IProject[]
 }
 
-export function ProjectsCollection() {
+export function Collections() {
   return (
     <div className="projects-container">
       <div className="container-inner">

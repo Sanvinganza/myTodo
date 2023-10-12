@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom"
-
 import "./Layout.scss"
 
 const Footer = () => (
   <footer>
     <a href="https://github.com/Sanvinganza">
       <img
-        src={require("../../../images/github.png")}
+        src={require("../../images/github.png")}
         alt="https://github.com/Sanvinganza"
       />
     </a>

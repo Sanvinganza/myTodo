@@ -45,7 +45,6 @@ const queue: ICardInfo[] = [
 
 export function Queue() {
   const [cards, setCards] = useState(queue)
-
   const moveCard = useCallback((dragIndex: number, hoverIndex: number) => {
     setCards(prevCards =>
       update(prevCards, {

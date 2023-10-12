@@ -1,5 +1,5 @@
-import { ProjectObjectives } from "./ProjectObjectives/ProjectObjectives"
-import { Layout } from "./ProjectsCollection/Layout/Layout"
-import { ProjectsCollection } from "./ProjectsCollection/ProjectsCollection"
+import { Collections } from "./Collections/Collections"
+import { Layout } from "./Layout/Layout"
+import { Objectives } from "./Objectives/Objectives"
 
-export { Layout, ProjectsCollection, ProjectObjectives }
+export { Layout, Collections, Objectives }
