@@ -1,6 +1,5 @@
 import { RefObject, forwardRef, useRef } from "react"
 import { useDrop, useDrag } from "react-dnd"
-import { IconCover } from "../../../../components/IconCover/IconCover"
 
 interface ICardProps {
   date?: Date
@@ -27,9 +26,6 @@ const CardCover = forwardRef<HTMLDivElement, ICardCoverProps>(
             <div className="attribute">
               <img src={require("../../../../images/star.png")} />
             </div>
-
-            <IconCover url={"../../../../images/message.png"} size="large" />
-
             <div className="attribute">
               <img src={require("../../../../images/message.png")} />
             </div>
