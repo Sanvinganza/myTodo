@@ -16,6 +16,7 @@ interface IMessageModalProps {
   isOpen: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
+Modal.setAppElement(":root")
 
 export const MessageModal = ({ isOpen, setIsOpen }: IMessageModalProps) => {
   function afterOpenModal() {

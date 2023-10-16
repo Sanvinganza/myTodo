@@ -23,7 +23,7 @@ export const Card = forwardRef<HTMLDivElement, ICardCoverProps>(
           <footer>
             <div className="attribute-container">
               <img
-                src={require("../images/star.png")}
+                src={require("../images/project.png")}
                 className="icon"
                 onClick={() => {
                   setStarModalIsOpen(true)
@@ -36,22 +36,16 @@ export const Card = forwardRef<HTMLDivElement, ICardCoverProps>(
                   setMessageModalIsOpen(true)
                 }}
               />
-              <img
-                src={require("../images/add.png")}
-                className="icon"
-                onClick={() => {
-                  setAddModalIsOpen(true)
-                }}
-              />
             </div>
           </footer>
         </div>
+
         <StarModal isOpen={starModalIsOpen} setIsOpen={setStarModalIsOpen} />
+        <AddModal isOpen={addModalIsOpen} setIsOpen={setAddModalIsOpen} />
         <MessageModal
           isOpen={messageModalIsOpen}
           setIsOpen={setMessageModalIsOpen}
         />
-        <AddModal isOpen={addModalIsOpen} setIsOpen={setAddModalIsOpen} />
       </>
     )
   },

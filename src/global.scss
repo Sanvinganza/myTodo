@@ -139,5 +139,81 @@ a {
     }
   }
 }
-
 // -----------OBJECTIVES END
+
+// -----------MODAL START
+.Modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background: #000000;
+  opacity: 0.7;
+  border: 2px solid color.$grey-light;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+}
+
+.modal-container {
+  padding: 15px;
+  color: color.$white;
+  display: flex;
+  flex-direction: row;
+  > .modal-info {
+    display: flex;
+    flex-direction: column;
+    .date-info {
+      display: flex;
+      padding: 5px;
+      justify-content: space-between;
+      .created {
+        color: color.$green;
+      }
+      .latest {
+        color: color.$orange;
+      }
+      .deadline {
+        color: color.$red;
+      }
+    }
+  }
+  > .modal-comments {
+    min-width: 360px;
+    > .chat {
+      border: 1px solid color.$white;
+      > input {
+        width: max-content;
+      }
+    }
+  }
+}
+
+.message-container {
+  width: auto;
+  padding: 2px 5px;
+  margin: 5px;
+  border: 1px color.$white solid;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+
+  > .message-text {
+    font-weight: 300;
+    font-size: 14px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+  }
+  > .date {
+    color: color.$blue;
+    font-size: 12px;
+  }
+}
+// -----------MODAL END

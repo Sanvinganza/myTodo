@@ -16,6 +16,7 @@ interface IAddModalProps {
   isOpen: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
+Modal.setAppElement(":root")
 
 export const AddModal = ({ isOpen, setIsOpen }: IAddModalProps) => {
   function afterOpenModal() {
