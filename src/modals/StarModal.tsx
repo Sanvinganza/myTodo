@@ -27,12 +27,16 @@ export const StarModal = ({ isOpen, setIsOpen }: IStarModalProps) => {
             <div className="latest">latest update: 12.04.23 12:00</div>
             <div className="deadline">deadline: 11.02.23 11:00</div>
           </div>
-          <h1 className="title">Title</h1>
+          <h1 className="title">
+            <div className="text">Title</div>
+            <div className="status">in progress</div>
+          </h1>
           <h3 className="about">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
             similique assumenda quisquam, ipsa reprehenderit repellat eum
             reiciendis temporibus! Maxime, perferendis.
           </h3>
+          <h2>Subtasks</h2>
           {[1, 2, 3, 4].map(subtasks => {
             return (
               <div className="subtask-container">
@@ -41,6 +45,7 @@ export const StarModal = ({ isOpen, setIsOpen }: IStarModalProps) => {
                   Ratione?
                 </div>
                 <div className="created">13.12.23 15:00</div>
+                <input type="checkbox" className="status" />
               </div>
             )
           })}

@@ -148,9 +148,11 @@ a {
   left: 40px;
   right: 40px;
   bottom: 40px;
-  background: #000000;
-  opacity: 0.7;
+  background: color.$black;
+  opacity: 0.9;
+  border-radius: 5px;
   border: 2px solid color.$grey-light;
+  overflow: auto;
 }
 
 .Overlay {
@@ -170,6 +172,18 @@ a {
   > .modal-info {
     display: flex;
     flex-direction: column;
+    > .title {
+      display: flex;
+      color: color.$blue;
+      > .status {
+        color: color.$orange;
+        font-size: 14px;
+        padding: 0 5px;
+      }
+    }
+    > .about {
+      color: color.$white;
+    }
     .date-info {
       display: flex;
       padding: 5px;
@@ -214,6 +228,22 @@ a {
   > .date {
     color: color.$blue;
     font-size: 12px;
+  }
+}
+
+.subtask-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+  border: 1px solid color.$grey-light;
+  border-radius: 5px;
+  margin: 5px 0;
+
+  .about {
+    font-weight: 500;
+  }
+  .created {
+    color: color.$green;
   }
 }
 // -----------MODAL END
