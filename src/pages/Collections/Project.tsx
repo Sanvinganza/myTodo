@@ -1,5 +1,3 @@
-import "./Project.scss"
-
 export interface IProject {
   id: number
   title: string

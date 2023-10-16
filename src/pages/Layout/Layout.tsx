@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom"
-import "./Layout.scss"
 
 const Footer = () => (
   <footer>

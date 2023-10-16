@@ -1,7 +1,6 @@
 import update from "immutability-helper"
 import { useCallback, useState } from "react"
-import "./Queue.scss"
-import { Card } from "./Objective/Objective"
+import { Objective } from "./Objective"
 
 export interface ICardInfo {
   id: number
@@ -58,7 +57,7 @@ export function Queue() {
 
   const renderCard = useCallback((card: ICardInfo, index: number) => {
     return (
-      <Card
+      <Objective
         key={card.id}
         index={index}
         id={card.id}

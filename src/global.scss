@@ -1,8 +1,8 @@
-@use "./variables";
+@use "./variables" as color;
 
 :root {
-  color: variables.$white;
-  background: variables.$black;
+  color: color.$white;
+  background: color.$black;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
@@ -19,8 +19,125 @@ a {
   text-decoration: none;
 }
 
-img {
-  width: 24px;
-  height: 24px;
-  padding: 5px;
+// -----------LAYOUT START
+.container {
+  header {
+    justify-content: center;
+    font-size: 2em;
+    border-bottom: 2px color.$white solid;
+    height: 40px;
+    padding: 5px 15px;
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
 }
+
+.container > footer {
+  z-index: 2;
+  height: 40px;
+  padding: 10px;
+  border-top: 2px color.$white solid;
+  a > img {
+    width: 32px;
+    height: 32px;
+  }
+}
+// -----------LAYOUT END
+
+// -----------PROJECTS START
+.project-container {
+  display: flex;
+  max-width: 240px;
+  border-radius: 10px;
+  margin: 5px;
+  background-color: transparent;
+  padding: 20px 40px;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px color.$white solid;
+  text-decoration: none;
+  > .title {
+    padding: 5px 0;
+    font-size: 1.3em;
+    color: color.$blue;
+  }
+  > .about {
+    color: color.$grey-light;
+    font-weight: 100;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+// -----------PROJECTS END
+
+// -----------COLLECTIONS START
+.projects-container {
+  display: flex;
+  max-width: 1280px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 15px 0;
+}
+// -----------COLLECTIONS END
+
+// -----------QUEUE START
+.queue-container {
+  > .queue-item {
+    padding: 10px 2px;
+    border-radius: 5px;
+    margin: 5px 0;
+    border: 1px color.$white solid;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: space-between;
+    height: 107px;
+    > span.about {
+      height: 100%;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 5px;
+    }
+  }
+
+  > footer {
+    height: 30px;
+    border-top: 1px color.$blue solid;
+    margin-top: 10px;
+  }
+}
+// -----------QUEUE END
+
+// -----------OBJECTIVES START
+.tasks-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15px 0;
+  height: 100%;
+  > .column {
+    min-height: 100%;
+    border-radius: 15px;
+    padding: 15px;
+    width: calc(100vw / 3 - 50px);
+    max-width: 240px;
+    height: 100%;
+    > .title {
+      color: color.$blue;
+      font-size: 1.4em;
+      text-align: center;
+    }
+  }
+}
+
+// -----------OBJECTIVES END

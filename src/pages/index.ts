@@ -1,5 +1,5 @@
-import { Collections } from "./Collections/Collections"
+import { Collections } from "./Collections"
 import { Layout } from "./Layout/Layout"
-import { Objectives } from "./Objectives/Objectives"
+import { Objectives } from "./Objectives"
 
 export { Layout, Collections, Objectives }
