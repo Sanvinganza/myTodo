@@ -4,20 +4,27 @@ import { CommentsModal } from "../modals/CommentsModal"
 import { ObjectiveModal } from "../modals/ObjectiveModal"
 
 export interface ICardCoverProps {
-  text: string
   ref: RefObject<HTMLDivElement>
+  title: string
 }
 
-export type TCardCover = ({ text, ref }: ICardCoverProps) => JSX.Element
+export type TCardCover = ({ ref, title }: ICardCoverProps) => JSX.Element
 export const Card = forwardRef<HTMLDivElement, ICardCoverProps>(
-  ({ text }, ref) => {
+  ({ title }, ref) => {
     const [starModalIsOpen, setStarModalIsOpen] = useState(false)
     const [messageModalIsOpen, setMessageModalIsOpen] = useState(false)
 
     return (
       <>
         <div ref={ref} className="queue-item">
-          <span className="about">{text}</span>
+          <div className="container">
+            <div className="title">{title}</div>
+            <figure className="rating-container">
+              <img src={require("../images/star.png")} />
+              <figcaption>8</figcaption>
+            </figure>
+          </div>
+
           <footer>
             <div className="attribute-container">
               <img

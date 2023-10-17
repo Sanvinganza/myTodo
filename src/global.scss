@@ -92,23 +92,27 @@ a {
 .queue-container {
   transition: 3s ease-out;
   > .queue-item {
-    padding: 10px 2px;
+    padding: 10px 5px;
     border-radius: 5px;
     margin: 5px 0;
     border: 1px color.$white solid;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
-    align-content: space-between;
     height: 107px;
-    > span.about {
+    > .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    > .title {
+      font-size: 12px;
       height: 100%;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
-      padding: 5px;
     }
   }
 
@@ -116,6 +120,20 @@ a {
     height: 30px;
     border-top: 1px color.$blue solid;
     margin-top: 10px;
+  }
+}
+
+// ----- raiting
+figure.rating-container {
+  position: relative;
+  margin: 0;
+  width: 34px;
+  figcaption {
+    position: absolute;
+    text-align: center;
+    left: 11px;
+    top: 4px;
+    color: color.$black;
   }
 }
 // -----------QUEUE END

@@ -1,7 +1,5 @@
 import update from "immutability-helper"
 import { useCallback, useState } from "react"
-import { DndProvider } from "react-dnd"
-import { HTML5Backend } from "react-dnd-html5-backend"
 import useMediaQuery from "../../helpers/useMediaQuery"
 import { Objective } from "./Objective"
 
@@ -64,14 +62,12 @@ export function Queue({ queue = [], title }: IQueueProps) {
           </div>
         ) : null}
       </div>
-      <DndProvider backend={HTML5Backend}>
-        {showQueue ? (
-          <div className="queue-container">
-            {cards.map((task, i) => renderCard(task, i))}
-            <footer>add task</footer>
-          </div>
-        ) : null}
-      </DndProvider>
+      {showQueue ? (
+        <div className="queue-container">
+          {cards.map((task, i) => renderCard(task, i))}
+          <footer>add task</footer>
+        </div>
+      ) : null}
     </div>
   )
 }

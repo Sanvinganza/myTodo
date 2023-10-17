@@ -4,34 +4,34 @@ import { ICardInfo, Queue } from "./Queue"
 export interface IInProgressQueeuProps {}
 const queue: ICardInfo[] = [
   {
-    id: 1,
-    index: 1,
+    id: 6,
+    index: 6,
     date: new Date(),
-    text: "1Lorem dolor sit amet consectetur, adipisicing elit. Offic",
+    text: "6Lorem dolor sit amet consectetur, adipisicing elit. Offic",
   },
   {
-    id: 2,
-    index: 2,
+    id: 7,
+    index: 7,
     date: new Date(),
-    text: "2Lorem ipsum doloadipisicing elit. Offic",
+    text: "7Lorem ipsum doloadipisicing elit. Offic",
   },
   {
-    id: 3,
-    index: 3,
+    id: 8,
+    index: 8,
     date: new Date(),
-    text: "3Lorem ipsum dolor sit apisicing elit. Offic",
+    text: "8Lorem ipsum dolor sit apisicing elit. Offic",
   },
   {
-    id: 4,
-    index: 4,
+    id: 9,
+    index: 9,
     date: new Date(),
-    text: "4amet consectetur, adipisicing elit. Offic",
+    text: "9amet consectetur, adipisicing elit. Offic",
   },
   {
-    id: 5,
-    index: 5,
+    id: 10,
+    index: 10,
     date: new Date(),
-    text: "5Lorpsum dolor sit amet consectetur, adipisicing elit. Offic",
+    text: "10Lorpsum dolor sit amet consectetur, adipisicing elit. Offic",
   },
 ]
 export function InProgressQueeu(props: IInProgressQueeuProps) {

@@ -51,5 +51,5 @@ export const Objective = ({ id, text, index, moveCard }: IObjectiveProps) => {
 
   drag(drop(ref))
 
-  return <Card ref={ref} text={text} />
+  return <Card title={"Do Something with dinner!!!"} ref={ref} />
 }
