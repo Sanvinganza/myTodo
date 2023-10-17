@@ -1,8 +1,7 @@
 import { RefObject, forwardRef, useState } from "react"
 import "./components.scss"
-import { AddModal } from "../modals/AddModal"
-import { MessageModal } from "../modals/MessageModal"
-import { StarModal } from "../modals/StarModal"
+import { CommentsModal } from "../modals/CommentsModal"
+import { ObjectiveModal } from "../modals/ObjectiveModal"
 
 export interface ICardCoverProps {
   text: string
@@ -13,7 +12,6 @@ export type TCardCover = ({ text, ref }: ICardCoverProps) => JSX.Element
 export const Card = forwardRef<HTMLDivElement, ICardCoverProps>(
   ({ text }, ref) => {
     const [starModalIsOpen, setStarModalIsOpen] = useState(false)
-    const [addModalIsOpen, setAddModalIsOpen] = useState(false)
     const [messageModalIsOpen, setMessageModalIsOpen] = useState(false)
 
     return (
@@ -40,9 +38,11 @@ export const Card = forwardRef<HTMLDivElement, ICardCoverProps>(
           </footer>
         </div>
 
-        <StarModal isOpen={starModalIsOpen} setIsOpen={setStarModalIsOpen} />
-        <AddModal isOpen={addModalIsOpen} setIsOpen={setAddModalIsOpen} />
-        <MessageModal
+        <ObjectiveModal
+          isOpen={starModalIsOpen}
+          setIsOpen={setStarModalIsOpen}
+        />
+        <CommentsModal
           isOpen={messageModalIsOpen}
           setIsOpen={setMessageModalIsOpen}
         />

@@ -1,5 +1,8 @@
 import update from "immutability-helper"
 import { useCallback, useState } from "react"
+import { DndProvider } from "react-dnd"
+import { HTML5Backend } from "react-dnd-html5-backend"
+import useMediaQuery from "../../helpers/useMediaQuery"
 import { Objective } from "./Objective"
 
 export interface ICardInfo {
@@ -9,41 +12,16 @@ export interface ICardInfo {
   text: string
 }
 
-const queue: ICardInfo[] = [
-  {
-    id: 1,
-    index: 1,
-    date: new Date(),
-    text: "1Lorem dolor sit amet consectetur, adipisicing elit. Offic",
-  },
-  {
-    id: 2,
-    index: 2,
-    date: new Date(),
-    text: "2Lorem ipsum doloadipisicing elit. Offic",
-  },
-  {
-    id: 3,
-    index: 3,
-    date: new Date(),
-    text: "3Lorem ipsum dolor sit apisicing elit. Offic",
-  },
-  {
-    id: 4,
-    index: 4,
-    date: new Date(),
-    text: "4amet consectetur, adipisicing elit. Offic",
-  },
-  {
-    id: 5,
-    index: 5,
-    date: new Date(),
-    text: "5Lorpsum dolor sit amet consectetur, adipisicing elit. Offic",
-  },
-]
+export interface IQueueProps {
+  queue: ICardInfo[]
+  title: string
+}
 
-export function Queue() {
+export function Queue({ queue = [], title }: IQueueProps) {
   const [cards, setCards] = useState(queue)
+  const isMobile = useMediaQuery("(max-width: 480px)")
+  const [showQueue, setShowQueue] = useState(!isMobile)
+
   const moveCard = useCallback((dragIndex: number, hoverIndex: number) => {
     setCards(prevCards =>
       update(prevCards, {
@@ -69,9 +47,31 @@ export function Queue() {
   }, [])
 
   return (
-    <div className="queue-container">
-      {cards.map((task, i) => renderCard(task, i))}
-      <footer>add task</footer>
+    <div key={title} className="column">
+      <div className="title">
+        <div className="text">{title}</div>
+        {isMobile ? (
+          <div className="dropdown" onClick={() => setShowQueue(!showQueue)}>
+            <img
+              src={
+                showQueue
+                  ? require("../../images/dropup.png")
+                  : require("../../images/dropdown.png")
+              }
+              alt=""
+              className="icon dropdown"
+            />
+          </div>
+        ) : null}
+      </div>
+      <DndProvider backend={HTML5Backend}>
+        {showQueue ? (
+          <div className="queue-container">
+            {cards.map((task, i) => renderCard(task, i))}
+            <footer>add task</footer>
+          </div>
+        ) : null}
+      </DndProvider>
     </div>
   )
 }

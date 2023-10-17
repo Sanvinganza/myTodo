@@ -7,7 +7,7 @@ interface IStarModalProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const StarModal = ({ isOpen, setIsOpen }: IStarModalProps) => {
+export const ObjectiveModal = ({ isOpen, setIsOpen }: IStarModalProps) => {
   function afterOpenModal() {
     // references are now sync'd and can be accessed.`
   }
@@ -24,7 +24,7 @@ export const StarModal = ({ isOpen, setIsOpen }: IStarModalProps) => {
         <div className="modal-info">
           <div className="date-info">
             <div className="created">created: 17.11.22 16:00</div>
-            <div className="latest">latest update: 12.04.23 12:00</div>
+            <div className="latest">update: 12.04.23 12:00</div>
             <div className="deadline">deadline: 11.02.23 11:00</div>
           </div>
           <h1 className="title">

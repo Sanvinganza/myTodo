@@ -12,15 +12,15 @@ const customStyles = {
   },
 }
 
-interface IAddModalProps {
+interface IMessageModalProps {
   isOpen: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 Modal.setAppElement(":root")
 
-export const AddModal = ({ isOpen, setIsOpen }: IAddModalProps) => {
+export const CommentsModal = ({ isOpen, setIsOpen }: IMessageModalProps) => {
   function afterOpenModal() {
-    // references are now sync'd and can be accessed.
+    alert("isOpen")
   }
 
   return (
