@@ -1,16 +1,6 @@
 import React from "react"
 import Modal from "react-modal"
-
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-}
+import { Comment } from "../components/Comment"
 
 interface IMessageModalProps {
   isOpen: boolean
@@ -18,9 +8,17 @@ interface IMessageModalProps {
 }
 Modal.setAppElement(":root")
 
+const comments = [
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, tenetur.",
+  "Accusamus qui consequuntur ex nemo ipsam est quod voluptatibus reiciendis!",
+  "Iste ea debitis ipsum laboriosam animi nemo sapiente voluptatum nulla?",
+  "Neque reiciendis aliquid, amet saepe architecto distinctio ad quos deserunt.",
+  "Nulla minima officia, corrupti ex voluptatem harum doloremque consequuntur perspiciatis.",
+]
+
 export const CommentsModal = ({ isOpen, setIsOpen }: IMessageModalProps) => {
   function afterOpenModal() {
-    alert("isOpen")
+    // alert("isOpen")
   }
 
   return (
@@ -28,9 +26,23 @@ export const CommentsModal = ({ isOpen, setIsOpen }: IMessageModalProps) => {
       isOpen={isOpen}
       onAfterOpen={afterOpenModal}
       onRequestClose={() => setIsOpen(false)}
-      style={customStyles}
+      className="Modal"
+      overlayClassName="Overlay"
     >
-      <div>I am a modal</div>
+      <div className="comments-container">
+        <div className="comments-container-inner">
+          {comments.map(text => (
+            <Comment text={text}></Comment>
+          ))}
+        </div>
+        <form>
+          <input
+            type="text"
+            content="add a Comment"
+            className="comment-field"
+          />
+        </form>
+      </div>
     </Modal>
   )
 }
