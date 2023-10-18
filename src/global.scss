@@ -287,63 +287,86 @@ figure.rating-container {
   height: 100%;
   padding: 5px;
   justify-content: space-between;
+
   &.-inner {
     margin-bottom: 5px;
   }
+  > form {
+    padding: 7px 0;
+  }
   input[type="text"].comment-field {
     padding: 6px 10px;
-    font-size: 14px;
+    font-size: 18px;
     width: 100%;
     box-sizing: border-box;
     border-radius: 15px;
     border: 0;
     background-color: color.$grey-light;
     color: color.$black;
-    margin: 5px 0;
   }
 }
 
 .comment-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid color.$grey-light;
-  &-info {
-    display: flex;
-    flex-direction: column;
-    .title {
-      .header-info {
+  > .container-inner {
+    > .container-info {
+      display: flex;
+      flex-direction: column;
+      > .title {
         display: flex;
         flex-direction: row;
-        .name {
-          font-size: 16px;
-          font-weight: 500;
-          color: color.$blue;
+        justify-content: space-between;
+        .header-info {
+          display: flex;
+          flex-direction: row;
+          .name {
+            font-size: 16px;
+            font-weight: 500;
+            color: color.$blue;
+          }
+          .date {
+            padding-left: 5px;
+            font-size: 12px;
+            color: color.$orange;
+          }
         }
-        .date {
-          padding-left: 5px;
-          font-size: 12px;
-          color: color.$orange;
+      }
+      .text-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        img.forward {
+          height: 24px;
+          width: 24px;
+          align-self: self-end;
+          opacity: 0.7;
+          &:hover {
+            opacity: 1;
+          }
+        }
+        .text {
+          width: 100%;
+          font-weight: 200;
+          font-size: 14px;
+          color: color.$white;
+          font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+            "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
         }
       }
     }
-    .text {
-      font-weight: 200;
-      font-size: 14px;
-      color: color.$white;
-      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    img.delete {
+      height: 24px;
+      opacity: 0.7;
+      &:hover {
+        opacity: 1;
+      }
     }
-  }
-  img.delete {
-    height: 30px;
-    opacity: 0.7;
-  }
-  img.delete:hover {
-    opacity: 1;
   }
 }
 // -----------COMMENTS END

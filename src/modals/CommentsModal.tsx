@@ -32,7 +32,10 @@ export const CommentsModal = ({ isOpen, setIsOpen }: IMessageModalProps) => {
       <div className="comments-container">
         <div className="comments-container-inner">
           {comments.map(text => (
-            <Comment text={text}></Comment>
+            <Comment
+              text={text}
+              child={<Comment text={text} child={<Comment text={text} />} />}
+            ></Comment>
           ))}
         </div>
         <form>
