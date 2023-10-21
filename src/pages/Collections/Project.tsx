@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux"
+
 export interface IProject {
   id: number
   title: string
@@ -5,6 +7,8 @@ export interface IProject {
 }
 
 export function Project() {
+  const projects = useSelector((state: any) => state.projects)
+  console.log(projects)
   return (
     <div className="project-container">
       <div className="title">Project 1</div>
