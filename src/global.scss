@@ -56,7 +56,7 @@ a {
 // -----------PROJECTS START
 .project-container {
   display: flex;
-  max-width: 240px;
+  width: 240px;
   height: 100px;
   border-radius: 10px;
   margin: 5px;
@@ -82,14 +82,12 @@ a {
     overflow: hidden;
   }
   > .add-icon {
-    max-width: 240px;
+    width: 24px;
   }
 }
-
 // -----------PROJECTS END
 
 // -----------COLLECTIONS START
-
 .projects-container {
   display: flex;
   max-width: 1280px;
@@ -393,3 +391,41 @@ figure.rating-container {
     }
   }
 }
+
+// -------------CALENDARY START
+.datepicker-toggle {
+  display: inline-block;
+  position: relative;
+  width: 18px;
+  height: 19px;
+}
+.datepicker-toggle-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  background-image: url("./images/calendary.png");
+}
+.datepicker-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.datepicker-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+// -------------CALENDARY END
