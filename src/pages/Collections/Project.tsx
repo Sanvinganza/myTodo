@@ -7,6 +7,7 @@ export interface IProject {
 }
 
 export function Project() {
+  //eslint-disable-next-line
   const projects = useSelector((state: any) => state.projects)
   console.log(projects)
   return (

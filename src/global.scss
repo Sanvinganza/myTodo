@@ -57,14 +57,17 @@ a {
 .project-container {
   display: flex;
   max-width: 240px;
+  height: 100px;
   border-radius: 10px;
   margin: 5px;
   background-color: transparent;
   padding: 20px 40px;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
   border: 1px color.$white solid;
   text-decoration: none;
+
   > .title {
     padding: 5px 0;
     font-size: 1.3em;
@@ -78,7 +81,11 @@ a {
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  > .add-icon {
+    max-width: 240px;
+  }
 }
+
 // -----------PROJECTS END
 
 // -----------COLLECTIONS START
