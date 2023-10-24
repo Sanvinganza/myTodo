@@ -1,9 +1,9 @@
 import { format, formatDistance, subDays } from "date-fns"
 import { FormEvent, useRef, useState } from "react"
 import Modal from "react-modal"
-import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
-import { getProjects } from "../store/selectors"
+import { v1 as uuidv1 } from "uuid"
+import { addProject } from "../store/actions/projectsActions"
 
 export interface IAddProjectModalProps {
   isOpen: boolean
@@ -16,21 +16,19 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
   const discribeRef = useRef<HTMLTextAreaElement>(null)
   const titleRef = useRef<HTMLInputElement>(null)
 
-  const projects = useSelector(getProjects)
-  console.log(projects, statusRef)
-
   const dispatch = useDispatch()
-
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
-
-    console.log("onsub", e.target)
-    console.log(
-      "ref",
-      titleRef.current?.value,
-      statusRef.current?.value,
-      discribeRef.current?.value,
+    dispatch(
+      addProject({
+        id: uuidv1(),
+        title: titleRef.current?.value,
+        discribe: discribeRef.current?.value,
+        status:
+          statusRef.current?.value === "in progress" ? "in progress" : "done",
+      }),
     )
+    setIsOpen(false)
   }
   return (
     <Modal
@@ -39,7 +37,7 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
       className="Modal"
       overlayClassName="Overlay"
     >
-      <form onSubmit={onSubmit}>
+      <form>
         <div className="modal-container">
           <div className="modal-info">
             <div className="date-info">

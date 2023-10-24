@@ -2,30 +2,19 @@ import * as actionTypes from "../actions/actionTypes"
 import { TProjectActions } from "../actions/projectsActions"
 import { IProject } from "../types"
 
-export interface IProjectsState {
-  projects: IProject[]
-}
-export const initialProjectsState: IProjectsState = {
-  projects: [],
-}
+export type TProjectsState = Array<IProject>
+export const initialProjectsState: TProjectsState = []
 
-export const projectsReducer = (
-  state = initialProjectsState,
-  action: TProjectActions,
-) => {
+export default (state = initialProjectsState, action: TProjectActions) => {
   switch (action.type) {
     case actionTypes.ADD_PROJECT:
-      return {
-        ...state,
-        projects: [...state.projects, action.payload],
-      }
+      return [...state, action.payload]
     case actionTypes.DELETE_PROJECT:
-      return {
-        ...state,
-        projects: state.projects?.filter(
-          (project: IProject) => project.id !== action.payload,
+      return [
+        ...state.filter(
+          (project: IProject) => project.id !== action.payload.id,
         ),
-      }
+      ]
     default:
       return state
   }

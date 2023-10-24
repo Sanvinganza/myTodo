@@ -1,22 +1,13 @@
-import { useSelector } from "react-redux"
+import { IProject } from "../../store/types"
 
-export interface IProject {
-  id: number
-  title: string
-  about: string
-}
+type TProjectProps = Omit<IProject, "id">
 
-export function Project() {
-  //eslint-disable-next-line
-  const projects = useSelector((state: any) => state.projects)
-  console.log(projects)
+export function Project({ title, discribe, status, deadline }: TProjectProps) {
   return (
     <div className="project-container">
-      <div className="title">Project 1</div>
-      <div className="about">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad sint aut
-        autem sequi accusantium officiis.
-      </div>
+      <div className="title">{title}</div>
+
+      <div className="about">{discribe}</div>
     </div>
   )
 }

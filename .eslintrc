@@ -34,7 +34,19 @@
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "no-empty-pattern": "off",
-    "import/no-anonymous-default-export": "error",
+    "import/no-anonymous-default-export": [
+      "error",
+      {
+        "allowArray": false,
+        "allowArrowFunction": true,
+        "allowAnonymousClass": false,
+        "allowAnonymousFunction": true,
+        "allowCallExpression": true, // The true value here is for backward compatibility
+        "allowNew": false,
+        "allowLiteral": false,
+        "allowObject": false
+      }
+    ],
     "import/newline-after-import": "warn",
     "import/order": [
       "warn",

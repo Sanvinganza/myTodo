@@ -1,15 +1,14 @@
-import { V1Options } from "uuid"
-
 export interface IProject {
-  id: V1Options
-  title: string
-  describe: string
-  createAt: Date
-  status: "in progress" | "done"
+  id: string
+  title?: string
+  discribe?: string
+  createAt?: Date
+  status?: "in progress" | "done"
+  deadline?: string
 }
 
 export interface ITask {
-  id: V1Options
+  id: string
   title: string
   describe: string
   createAt: Date
@@ -20,16 +19,16 @@ export interface ITask {
   comments: IComment[]
 }
 export interface IComment {
-  id: V1Options
-  taskId: V1Options
+  id: string
+  taskId: string
   title: string
   describe: string
   createAt: Date
-  forwarded: V1Options
+  forwarded: string
 }
 export interface ISubtask {
-  id: V1Options
-  taskId: V1Options
+  id: string
+  taskId: string
   title: string
   describe: string
   createAt: Date

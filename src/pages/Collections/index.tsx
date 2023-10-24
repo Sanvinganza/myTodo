@@ -1,7 +1,10 @@
 import { useState } from "react"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { AddProjectModal } from "../../modals/AddProjectModal"
-import { IProject, Project } from "./Project"
+import { getProjects } from "../../store/selectors"
+import { IProject } from "../../store/types"
+import { Project } from "./Project"
 
 export interface IProjectsProps {
   projects: IProject[]
@@ -28,11 +31,13 @@ const AddProject = ({}) => {
   )
 }
 export function Collections() {
+  const { projects }: any = useSelector(getProjects)
+  console.log(projects)
   return (
     <div className="projects-container">
-      {[1, 2].map((project: number) => (
-        <Link key={project} to="1">
-          <Project />
+      {projects?.map(({ title, id, discribe, status }: IProject) => (
+        <Link key={id} to={id}>
+          <Project title={title} discribe={discribe} status={status} />
         </Link>
       ))}
       <AddProject />
