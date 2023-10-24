@@ -1,8 +1,7 @@
-import { formatDistance, subDays } from "date-fns"
+import { format, formatDistance, subDays } from "date-fns"
 import { useState } from "react"
 import Modal from "react-modal"
 import { useDispatch } from "react-redux"
-import { getCurrentDate } from "../helpers/getCurrentDate"
 
 export interface IAddProjectModalProps {
   isOpen: boolean
@@ -24,7 +23,9 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
       <div className="modal-container">
         <div className="modal-info">
           <div className="date-info">
-            <div className="created">created: {getCurrentDate()}</div>
+            <div className="created">
+              created: {format(new Date(), "MM.dd.yy HH:mm")}
+            </div>
             <div className="latest">
               <span className="datepicker-toggle">
                 <span className="datepicker-toggle-button"></span>
