@@ -31,7 +31,7 @@ const AddProject = ({}) => {
   )
 }
 export function Collections() {
-  const { projects }: any = useSelector(getProjects)
+  const projects: any = useSelector(getProjects)
   console.log(projects)
   return (
     <div className="projects-container">
