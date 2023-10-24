@@ -1,7 +1,7 @@
 import { formatDistance, subDays } from "date-fns"
 import { useState } from "react"
 import Modal from "react-modal"
-import "react-calendar/dist/Calendar.css"
+import { useDispatch } from "react-redux"
 import { getCurrentDate } from "../helpers/getCurrentDate"
 
 export interface IAddProjectModalProps {
@@ -11,6 +11,8 @@ export interface IAddProjectModalProps {
 
 export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
   const [deadlineDate, setDeadlineDate] = useState(new Date().toString())
+
+  const dispatch = useDispatch()
 
   return (
     <Modal
@@ -51,6 +53,9 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
           <h3 className="about">
             <textarea />
           </h3>
+          <button className="save" onClick={dispatch}>
+            SAVE
+          </button>
         </div>
       </div>
     </Modal>
