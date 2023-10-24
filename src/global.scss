@@ -214,7 +214,20 @@ figure.rating-container {
     > .title {
       display: flex;
       color: color.$blue;
-      > .status {
+      input.title-field {
+        padding: 2px 5px;
+        font-size: 26px;
+        font-weight: 600;
+        max-width: 180px;
+      }
+      > select.status {
+        display: block;
+        color: color.$black;
+        > option {
+          font-weight: 400;
+        }
+      }
+      > div.status {
         color: color.$orange;
         font-size: 14px;
         padding: 0 5px;
@@ -222,6 +235,11 @@ figure.rating-container {
     }
     > .about {
       color: color.$white;
+      > textarea {
+        width: 100%;
+        height: 80px;
+        padding: 10px;
+      }
     }
     .date-info {
       display: flex;

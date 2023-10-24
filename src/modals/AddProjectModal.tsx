@@ -1,8 +1,8 @@
+import { formatDistance, subDays } from "date-fns"
 import { useState } from "react"
 import Modal from "react-modal"
 import "react-calendar/dist/Calendar.css"
 import { getCurrentDate } from "../helpers/getCurrentDate"
-import { formatDistance, subDays } from "date-fns"
 
 export interface IAddProjectModalProps {
   isOpen: boolean
@@ -41,6 +41,16 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
               })}
             </div>
           </div>
+          <h1 className="title">
+            <input type="text" className="title-field" />
+            <select className="status">
+              <option className="in-progress">in progress</option>
+              <option className="done">done</option>
+            </select>
+          </h1>
+          <h3 className="about">
+            <textarea />
+          </h3>
         </div>
       </div>
     </Modal>
