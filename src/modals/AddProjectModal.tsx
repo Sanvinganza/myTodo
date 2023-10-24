@@ -1,7 +1,9 @@
 import { format, formatDistance, subDays } from "date-fns"
-import { useState } from "react"
+import { FormEvent, useRef, useState } from "react"
 import Modal from "react-modal"
+import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
+import { getProjects } from "../store/selectors"
 
 export interface IAddProjectModalProps {
   isOpen: boolean
@@ -10,9 +12,26 @@ export interface IAddProjectModalProps {
 
 export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
   const [deadlineDate, setDeadlineDate] = useState(new Date().toString())
+  const statusRef = useRef<HTMLSelectElement>(null)
+  const discribeRef = useRef<HTMLTextAreaElement>(null)
+  const titleRef = useRef<HTMLInputElement>(null)
+
+  const projects = useSelector(getProjects)
+  console.log(projects, statusRef)
 
   const dispatch = useDispatch()
 
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault()
+
+    console.log("onsub", e.target)
+    console.log(
+      "ref",
+      titleRef.current?.value,
+      statusRef.current?.value,
+      discribeRef.current?.value,
+    )
+  }
   return (
     <Modal
       isOpen={isOpen}
@@ -20,45 +39,56 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
       className="Modal"
       overlayClassName="Overlay"
     >
-      <div className="modal-container">
-        <div className="modal-info">
-          <div className="date-info">
-            <div className="created">
-              created: {format(new Date(), "MM.dd.yy HH:mm")}
+      <form onSubmit={onSubmit}>
+        <div className="modal-container">
+          <div className="modal-info">
+            <div className="date-info">
+              <div className="created">
+                created: {format(new Date(), "MM.dd.yy HH:mm")}
+              </div>
+              <div className="latest">
+                <span className="datepicker-toggle">
+                  <span className="datepicker-toggle-button"></span>
+                  <input
+                    type="datetime-local"
+                    className="datepicker-input"
+                    value={deadlineDate}
+                    onChange={e => setDeadlineDate(e.target.value)}
+                  />
+                </span>
+              </div>
+              <div className="deadline">
+                deadline:{" "}
+                {formatDistance(
+                  subDays(new Date(deadlineDate), 0),
+                  new Date(),
+                  {
+                    addSuffix: true,
+                  },
+                )}
+              </div>
             </div>
-            <div className="latest">
-              <span className="datepicker-toggle">
-                <span className="datepicker-toggle-button"></span>
-                <input
-                  type="datetime-local"
-                  className="datepicker-input"
-                  value={deadlineDate}
-                  onChange={e => setDeadlineDate(e.target.value)}
-                />
-              </span>
-            </div>
-            <div className="deadline">
-              deadline:{" "}
-              {formatDistance(subDays(new Date(deadlineDate), 0), new Date(), {
-                addSuffix: true,
-              })}
-            </div>
+            <h1 className="title">
+              <input
+                required
+                type="text"
+                className="title-field"
+                ref={titleRef}
+              />
+              <select className="status" ref={statusRef} required>
+                <option className="in-progress">in progress</option>
+                <option className="done">done</option>
+              </select>
+            </h1>
+            <h3 className="about">
+              <textarea required ref={discribeRef} />
+            </h3>
+            <button className="save" onClick={onSubmit}>
+              SAVE
+            </button>
           </div>
-          <h1 className="title">
-            <input type="text" className="title-field" />
-            <select className="status">
-              <option className="in-progress">in progress</option>
-              <option className="done">done</option>
-            </select>
-          </h1>
-          <h3 className="about">
-            <textarea />
-          </h3>
-          <button className="save" onClick={dispatch}>
-            SAVE
-          </button>
         </div>
-      </div>
+      </form>
     </Modal>
   )
 }

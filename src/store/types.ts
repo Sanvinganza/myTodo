@@ -5,6 +5,7 @@ export interface IProject {
   title: string
   describe: string
   createAt: Date
+  status: "in progress" | "done"
 }
 
 export interface ITask {
