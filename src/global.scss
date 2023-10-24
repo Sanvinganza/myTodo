@@ -177,7 +177,16 @@ figure.rating-container {
   }
 }
 // -----------OBJECTIVES END
-
+input,
+select,
+textarea {
+  border: 0;
+  color: color.$black;
+  background: color.$grey-light;
+  border-radius: 5px;
+  font-weight: 500;
+  margin: 3px;
+}
 // -----------MODAL START
 .Modal {
   position: absolute;
@@ -190,6 +199,9 @@ figure.rating-container {
   border-radius: 5px;
   border: 2px solid color.$grey-light;
   overflow: auto;
+  margin: 0 auto;
+  max-width: 720px;
+  height: fit-content;
 }
 
 .Overlay {
@@ -207,6 +219,8 @@ figure.rating-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  max-width: 1280px;
   > .modal-info {
     display: flex;
     flex-direction: column;
@@ -216,9 +230,9 @@ figure.rating-container {
       color: color.$blue;
       input.title-field {
         padding: 2px 5px;
-        font-size: 26px;
+        font-size: 18px;
         font-weight: 600;
-        max-width: 180px;
+        max-width: 120px;
       }
       > select.status {
         display: block;
@@ -236,10 +250,22 @@ figure.rating-container {
     > .about {
       color: color.$white;
       > textarea {
-        width: 100%;
+        width: calc(100% - 20px);
         height: 80px;
         padding: 10px;
+        resize: none;
       }
+    }
+    > .save {
+      align-self: center;
+      font-size: 24px;
+      padding: 5px 25px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 0;
+      font-weight: 500;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     }
     .date-info {
       display: flex;
