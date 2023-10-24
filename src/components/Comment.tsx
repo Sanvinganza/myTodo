@@ -1,7 +1,7 @@
 export interface IComment {
   id?: number
   text: string
-  child?: any
+  child?: JSX.Element
   date?: string
 }
 
