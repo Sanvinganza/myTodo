@@ -2,6 +2,7 @@ import { useState } from "react"
 import Modal from "react-modal"
 import "react-calendar/dist/Calendar.css"
 import { getCurrentDate } from "../helpers/getCurrentDate"
+import { formatDistance, subDays } from "date-fns"
 
 export interface IAddProjectModalProps {
   isOpen: boolean
@@ -9,8 +10,8 @@ export interface IAddProjectModalProps {
 }
 
 export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
-  const [calendarIsOpen, setCalendarIsOpen] = useState(false)
-  console.log(getCurrentDate())
+  const [deadlineDate, setDeadlineDate] = useState(new Date().toString())
+
   return (
     <Modal
       isOpen={isOpen}
@@ -22,13 +23,22 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
         <div className="modal-info">
           <div className="date-info">
             <div className="created">created: {getCurrentDate()}</div>
-            <div className="latest">update: {getCurrentDate()}</div>
-            <div className="deadline">
-              deadline:
+            <div className="latest">
               <span className="datepicker-toggle">
                 <span className="datepicker-toggle-button"></span>
-                <input type="date" className="datepicker-input" />
+                <input
+                  type="datetime-local"
+                  className="datepicker-input"
+                  value={deadlineDate}
+                  onChange={e => setDeadlineDate(e.target.value)}
+                />
               </span>
+            </div>
+            <div className="deadline">
+              deadline:{" "}
+              {formatDistance(subDays(new Date(deadlineDate), 0), new Date(), {
+                addSuffix: true,
+              })}
             </div>
           </div>
         </div>

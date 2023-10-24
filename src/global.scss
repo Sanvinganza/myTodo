@@ -206,9 +206,11 @@ figure.rating-container {
   color: color.$white;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   > .modal-info {
     display: flex;
     flex-direction: column;
+    width: calc(100% - 80px);
     > .title {
       display: flex;
       color: color.$blue;
@@ -225,6 +227,12 @@ figure.rating-container {
       display: flex;
       padding: 5px;
       justify-content: space-between;
+      > .created,
+      > .latest,
+      > .deadline {
+        display: flex;
+        text-align: center;
+      }
       .created {
         color: color.$green;
       }
@@ -390,23 +398,28 @@ figure.rating-container {
       }
     }
   }
+
+  .modal-container {
+    padding: 5px;
+  }
 }
 
 // -------------CALENDARY START
 .datepicker-toggle {
   display: inline-block;
   position: relative;
-  width: 18px;
-  height: 19px;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
 }
 .datepicker-toggle-button {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 12px;
   width: 24px;
   height: 24px;
   background-size: cover;
-  background-image: url("./images/calendary.png");
+  background-image: url("./images/clock.png");
 }
 .datepicker-input {
   position: absolute;
