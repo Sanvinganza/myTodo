@@ -19,6 +19,7 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
   const dispatch = useDispatch()
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
+    console.log(deadlineDate)
     dispatch(
       addProject({
         id: uuidv1(),
@@ -59,7 +60,7 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
               <div className="deadline">
                 deadline:{" "}
                 {formatDistance(
-                  subDays(new Date(deadlineDate), 0),
+                  subDays(new Date(deadlineDate || new Date()), 0),
                   new Date(),
                   {
                     addSuffix: true,
