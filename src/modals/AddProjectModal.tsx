@@ -35,6 +35,7 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
       isOpen={isOpen}
       onRequestClose={() => setIsOpen(false)}
       className="Modal"
+      style={{ content: { height: "fit-content" } }}
       overlayClassName="Overlay"
     >
       <form>
