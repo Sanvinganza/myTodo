@@ -2,9 +2,8 @@ export interface IProject {
   id: string
   title?: string
   discribe?: string
-  createAt?: Date
+  createAt?: string
   status?: "in progress" | "done"
-  deadline?: string
 }
 
 export interface ITask {

@@ -15,11 +15,11 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
   const statusRef = useRef<HTMLSelectElement>(null)
   const discribeRef = useRef<HTMLTextAreaElement>(null)
   const titleRef = useRef<HTMLInputElement>(null)
+  const createAt = format(new Date(), "MM.dd.yy HH:mm")
 
   const dispatch = useDispatch()
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
-    console.log(deadlineDate)
     dispatch(
       addProject({
         id: uuidv1(),
@@ -27,10 +27,12 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
         discribe: discribeRef.current?.value,
         status:
           statusRef.current?.value === "in progress" ? "in progress" : "done",
+        createAt: createAt,
       }),
     )
     setIsOpen(false)
   }
+
   return (
     <Modal
       isOpen={isOpen}
@@ -43,9 +45,7 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
         <div className="modal-container">
           <div className="modal-info">
             <div className="date-info">
-              <div className="created">
-                created: {format(new Date(), "MM.dd.yy HH:mm")}
-              </div>
+              <div className="created">created: {createAt}</div>
               <div className="latest">
                 <span className="datepicker-toggle">
                   <span className="datepicker-toggle-button"></span>

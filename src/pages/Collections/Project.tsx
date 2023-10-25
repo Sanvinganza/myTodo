@@ -1,13 +1,29 @@
-import { IProject } from "../../store/types"
+import { useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
+import { deleteProject } from "../../store/actions/projectsActions"
+import { IProject as IProjectProps } from "../../store/types"
 
-type TProjectProps = Omit<IProject, "id">
+export function Project({ id, title, discribe, status }: IProjectProps) {
+  const dispatch = useDispatch()
 
-export function Project({ title, discribe, status, deadline }: TProjectProps) {
+  const onDelete = () => dispatch(deleteProject(id))
+
   return (
     <div className="project-container">
-      <div className="title">{title}</div>
-
-      <div className="about">{discribe}</div>
+      <div className="title">
+        <div className="title-content">
+          {title}
+          <div className="status">{status}</div>
+        </div>
+        <img
+          src={require("../../images/delete.png")}
+          className="delete"
+          onClick={() => onDelete()}
+        />
+      </div>
+      <Link to={id}>
+        <div className="about">{discribe}</div>
+      </Link>
     </div>
   )
 }

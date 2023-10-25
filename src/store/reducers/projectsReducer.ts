@@ -11,9 +11,14 @@ export default (state = initialProjectsState, action: TProjectActions) => {
       return [...state, action.payload]
     case actionTypes.DELETE_PROJECT:
       return [
+        ...state.filter((project: IProject) => project.id !== action.payload),
+      ]
+    case actionTypes.EDIT_PROJECT:
+      return [
         ...state.filter(
           (project: IProject) => project.id !== action.payload.id,
         ),
+        { ...action.payload },
       ]
     default:
       return state

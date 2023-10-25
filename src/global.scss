@@ -63,17 +63,32 @@ a {
   background-color: transparent;
   padding: 20px 40px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   border: 1px color.$white solid;
   text-decoration: none;
-
-  > .title {
-    padding: 5px 0;
-    font-size: 1.3em;
-    color: color.$blue;
+  .title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .title-content {
+      display: flex;
+      padding: 5px 0;
+      font-size: 1.3em;
+      color: color.$blue;
+      > .status {
+        padding: 0 5px;
+        color: color.$orange;
+        font-size: 12px;
+      }
+    }
+    img.delete {
+      width: 24px;
+      height: 24px;
+      opacity: 0.7;
+    }
   }
-  > .about {
+  .about {
     color: color.$grey-light;
     font-weight: 100;
     display: -webkit-box;
@@ -83,6 +98,7 @@ a {
   }
   > .add-icon {
     width: 24px;
+    margin: auto;
   }
 }
 // -----------PROJECTS END
