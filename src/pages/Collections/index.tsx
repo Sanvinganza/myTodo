@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
 import { AddProjectModal } from "../../modals/AddProjectModal"
-import { getProjects } from "../../store/selectors"
+import { getAllProject } from "../../store/selectors"
 import { IProject } from "../../store/types"
 import { Project } from "./Project"
 
@@ -30,7 +30,7 @@ const AddProject = ({}) => {
   )
 }
 export function Collections() {
-  const projects: IProject[] = useSelector(getProjects)
+  const projects: IProject[] = useSelector(getAllProject)
   console.log(projects)
   return (
     <div className="projects-container">
