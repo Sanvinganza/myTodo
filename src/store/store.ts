@@ -1,8 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { rootReducer } from "./reducers"
-import { IComment, IProject, ISubtask, ITask } from "./types"
 
-function saveToLocalStorage(state: any) {
+function saveToLocalStorage(state: TState) {
   try {
     const serialisedState = JSON.stringify(state)
     localStorage.setItem("persistantState", serialisedState)
@@ -29,9 +28,4 @@ export const store = configureStore({
 
 store.subscribe(() => saveToLocalStorage(store.getState()))
 
-export interface IState {
-  projects: IProject[]
-  comments: IComment[]
-  subtasks: ISubtask[]
-  tasks: ITask[]
-}
+export type TState = ReturnType<typeof rootReducer>
