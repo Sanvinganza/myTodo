@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
-import { deleteProject } from "../../store/actions/projectsActions"
+import { deleteProject } from "../../store/actions/projectActions"
 import { IProject as IProjectProps } from "../../store/types"
 
 export function Project({ id, title, discribe, status }: IProjectProps) {

@@ -1,5 +1,5 @@
 import * as actionTypes from "../actions/actionTypes"
-import { TProjectActions } from "../actions/projectsActions"
+import { TProjectActions } from "../actions/projectActions"
 import { IProject } from "../types"
 
 export type TProjectsState = Array<IProject>

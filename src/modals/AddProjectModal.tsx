@@ -3,7 +3,7 @@ import { FormEvent, useRef, useState } from "react"
 import Modal from "react-modal"
 import { useDispatch } from "react-redux"
 import { v1 as uuidv1 } from "uuid"
-import { addProject } from "../store/actions/projectsActions"
+import { addProject } from "../store/actions/projectActions"
 
 export interface IAddProjectModalProps {
   isOpen: boolean
