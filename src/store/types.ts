@@ -16,7 +16,9 @@ export interface ITask {
   status: "development" | "queue" | "done"
   subtasks: ISubtask[]
   comments: IComment[]
+  number: number
 }
+
 export interface IComment {
   id: string
   taskId: string
@@ -25,6 +27,7 @@ export interface IComment {
   createAt: Date
   forwarded: string
 }
+
 export interface ISubtask {
   id: string
   taskId: string
