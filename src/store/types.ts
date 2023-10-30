@@ -8,14 +8,14 @@ export interface IProject {
 
 export interface ITask {
   id: string
-  title: string
-  describe: string
-  createAt: Date
-  deadline: Date
+  title?: string
+  discribe?: string
+  createAt?: string
+  deadline: string
   priority: number
-  status: "development" | "queue" | "done"
-  subtasks: ISubtask[]
-  comments: IComment[]
+  status?: "development" | "queue" | "done"
+  subtasks: ISubtask[] | []
+  comments: IComment[] | []
   number: number
 }
 

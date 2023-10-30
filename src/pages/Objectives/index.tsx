@@ -16,11 +16,11 @@ export function Objectives() {
       <header className="container">
         <div className="title">
           <div className="title-content">{project?.title}</div>
-          <img
+          {/* <img
             src={require("../../images/project.png")}
             alt=""
             className="edit"
-          />
+          /> */}
         </div>
         <div className="discribe">{project?.discribe}</div>
       </header>

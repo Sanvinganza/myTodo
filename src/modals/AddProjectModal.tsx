@@ -1,4 +1,4 @@
-import { format, formatDistance, subDays } from "date-fns"
+import { format } from "date-fns"
 import { FormEvent, useRef, useState } from "react"
 import Modal from "react-modal"
 import { useDispatch } from "react-redux"
@@ -47,7 +47,7 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
             <div className="date-info">
               <div className="created">created: {createAt}</div>
               <div className="latest">
-                <span className="datepicker-toggle">
+                {/* <span className="datepicker-toggle">
                   <span className="datepicker-toggle-button"></span>
                   <input
                     type="datetime-local"
@@ -55,9 +55,9 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
                     value={deadlineDate}
                     onChange={e => setDeadlineDate(e.target.value)}
                   />
-                </span>
+                </span> */}
               </div>
-              <div className="deadline">
+              {/* <div className="deadline">
                 deadline:{" "}
                 {formatDistance(
                   subDays(new Date(deadlineDate || new Date()), 0),
@@ -66,7 +66,7 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
                     addSuffix: true,
                   },
                 )}
-              </div>
+              </div> */}
             </div>
             <h1 className="title">
               <input

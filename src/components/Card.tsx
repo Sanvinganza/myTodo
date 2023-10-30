@@ -19,10 +19,10 @@ export const Card = forwardRef<HTMLDivElement, ICardCoverProps>(
         <div ref={ref} className="queue-item">
           <div className="container">
             <div className="title">{title}</div>
-            <figure className="rating-container">
+            {/* <figure className="rating-container">
               <img src={require("../images/star.png")} />
               <figcaption>8</figcaption>
-            </figure>
+            </figure> */}
           </div>
 
           <footer>
