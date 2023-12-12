@@ -1,7 +1,6 @@
-import update from "immutability-helper"
-import { useCallback, useState } from "react"
+import { useState } from "react"
 import useMediaQuery from "../../helpers/useMediaQuery"
-import { Objective } from "./Objective"
+import { Card } from "../../components/Card"
 
 export interface ICardInfo {
   id: number
@@ -19,30 +18,6 @@ export function Queue({ queue = [], title }: IQueueProps) {
   const [cards, setCards] = useState(queue)
   const isMobile = useMediaQuery("(max-width: 480px)")
   const [showQueue, setShowQueue] = useState(!isMobile)
-
-  const moveCard = useCallback((dragIndex: number, hoverIndex: number) => {
-    setCards(prevCards =>
-      update(prevCards, {
-        $splice: [
-          [dragIndex, 1],
-          [hoverIndex, 0, prevCards[dragIndex]],
-        ],
-      }),
-    )
-  }, [])
-
-  const renderCard = useCallback((card: ICardInfo, index: number) => {
-    return (
-      <Objective
-        key={card.id}
-        index={index}
-        id={card.id}
-        text={card.text}
-        moveCard={moveCard}
-        date={card.date}
-      />
-    )
-  }, [])
 
   return (
     <div key={title} className="column">
@@ -64,7 +39,9 @@ export function Queue({ queue = [], title }: IQueueProps) {
       </div>
       {showQueue ? (
         <div className="queue-container">
-          {cards.map((task, i) => renderCard(task, i))}
+          {cards.map((task, i) => (
+            <Card task={task} key={i} />
+          ))}
           <footer>add task</footer>
         </div>
       ) : null}

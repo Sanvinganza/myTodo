@@ -11,7 +11,6 @@ export interface IAddProjectModalProps {
 }
 
 export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
-  const [deadlineDate, setDeadlineDate] = useState(new Date().toString())
   const statusRef = useRef<HTMLSelectElement>(null)
   const discribeRef = useRef<HTMLTextAreaElement>(null)
   const titleRef = useRef<HTMLInputElement>(null)
@@ -46,30 +45,12 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
           <div className="modal-info">
             <div className="date-info">
               <div className="created">created: {createAt}</div>
-              <div className="latest">
-                {/* <span className="datepicker-toggle">
-                  <span className="datepicker-toggle-button"></span>
-                  <input
-                    type="datetime-local"
-                    className="datepicker-input"
-                    value={deadlineDate}
-                    onChange={e => setDeadlineDate(e.target.value)}
-                  />
-                </span> */}
-              </div>
-              {/* <div className="deadline">
-                deadline:{" "}
-                {formatDistance(
-                  subDays(new Date(deadlineDate || new Date()), 0),
-                  new Date(),
-                  {
-                    addSuffix: true,
-                  },
-                )}
-              </div> */}
+              <div className="latest"></div>
             </div>
             <h1 className="title">
+              <label htmlFor="title">Title :</label>
               <input
+                name="title"
                 required
                 type="text"
                 className="title-field"
@@ -81,7 +62,8 @@ export function AddProjectModal({ isOpen, setIsOpen }: IAddProjectModalProps) {
               </select>
             </h1>
             <h3 className="about">
-              <textarea required ref={discribeRef} />
+              <label htmlFor="textarea">ABOUT</label>
+              <textarea name="textarea" required ref={discribeRef} />
             </h3>
             <button className="save" onClick={onSubmit}>
               SAVE
